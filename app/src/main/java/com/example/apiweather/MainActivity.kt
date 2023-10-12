@@ -20,27 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val requestQue = Volley.newRequestQueue(this)
 
-
-        tempTextView = findViewById(R.id.temp)
-
-        val request = JsonObjectRequest(apiUrl,
-            { response ->
-                val current = response.getJSONObject("current")
-
-                val tempC = current.getDouble("temp_c")
-                val windKph = current.getDouble("wind_kph")
-                val humidity = current.getInt("humidity")
-
-                findViewById<TextView>(R.id.wind_speed).text = "${windKph}km/h"
-                findViewById<TextView>(R.id.humidity).text = "${humidity}%"
-
-                tempTextView.text = "${tempC}°"
-
-            }
-        ) { error -> Log.d("TAG", "onErrorResponse: $error") }
-        requestQue.add(request)
+        supportFragmentManager.beginTransaction().add(R.id.main, HomeFragment()).commit()
 
     }
 }

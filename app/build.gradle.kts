@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.apiweather"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.apiweather"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -48,5 +51,5 @@ dependencies {
     implementation("io.coil-kt:coil:2.4.0")
     implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.google.code.gson:gson:2.10.1")
-    implementation ("com.github.veeyaarVR:SuperGradientTextView:1.0.0")
+
 }
